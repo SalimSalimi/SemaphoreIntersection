@@ -4,7 +4,7 @@ Vehicule genererVehicule() {
     Vehicule vehicule;    
     switch (fork()) {
     case -1:
-        puts("Can't create a new car");
+        printf("Couldn't create a new car");
         break;
     case 0:
         int n = rand() % 2;
@@ -25,12 +25,12 @@ Vehicule genererVehicule() {
 }
 
 void deplacerVehicule(Vehicule vehicule) {
-    if (vehicule.positionX < MATRICE_SIZE && vehicule.positionY <= MATRICE_SIZE) {
+    if (vehicule.positionX < MATRICE_SIZE || vehicule.positionY < MATRICE_SIZE) {
         if (vehicule.positionY == 3) {
-            vehicule.positionX = vehicule.positionX + 1;
+            vehicule.positionX++;
         }
         if (vehicule.positionX == 3) {
-            vehicule.positionY = vehicule.positionY - 1;
+            vehicule.positionY++;
         }
     }
 }
