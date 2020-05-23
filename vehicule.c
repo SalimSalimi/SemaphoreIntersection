@@ -1,7 +1,7 @@
 #include "vehicule.h"
 
-Vehicule generateVehicule() {
-    Vehicule vehicule;    
+Vehicule* generateVehicule() {
+    Vehicule* vehicule;    
     int n;
     switch (fork()) {
     case -1:
@@ -9,14 +9,14 @@ Vehicule generateVehicule() {
         break;
     case 0:
         n = rand() % 2;
-        vehicule.pid = getpid();
+        vehicule->pid = getpid();
         if (n == 0) {
-            vehicule.positionX = 0;
-            vehicule.positionY = 3;
+            vehicule->positionX = 0;
+            vehicule->positionY = 3;
         }
         else {
-            vehicule.positionX = 3;
-            vehicule.positionY = 0;
+            vehicule->positionX = 3;
+            vehicule->positionY = 0;
         }
         break;
     default:
@@ -37,12 +37,13 @@ void moveVehicule(Vehicule* vehicule) {
 }
 
 void manageCriticalArea(Vehicule* vehicule, Intersection* intersection) {
+    int semid = intersection->sharedSemaphoreId;
     if ((vehicule->positionX == 3 && vehicule->positionY == 2) || (vehicule->positionX == 2 && vehicule->positionY == 3)) {
         while (intersection->isIntersectionFree == false) {
             sleep(1);   
         }
-        S(intersection->sharedSemaphoreId);
+        P(semid);
         moveVehicule(vehicule);
-        V(intersection->sharedSemaphoreId);
+        V(semid);
     }
 }

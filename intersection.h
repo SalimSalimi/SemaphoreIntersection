@@ -8,9 +8,9 @@
 #include "sharedmem.h"
 
     typedef struct intersection {
-        Vehicule* vehicules[VEHICULE_NUMBER_SIZE];
+        struct Vehicule* vehicules[VEHICULE_NUMBER_SIZE];
         char* terrain[MATRICE_SIZE][MATRICE_SIZE];
-        Vehicule* vehiculeSection[VEHICULE_INTERSECTION_SIZE];
+        struct Vehicule* vehiculeSection[VEHICULE_INTERSECTION_SIZE];
         bool isIntersectionFree;
         int sharedSemaphoreId; 
     } Intersection;

@@ -8,12 +8,12 @@
 #include "defs.h"
 #include "sharedmem.h"
 
-   typedef struct {
+   typedef struct Vehicule{
     int pid;
     int positionX;
     int positionY;
     } Vehicule;
 
-    Vehicule generateVehicule();
-    void moveVehicule(Vehicule vehicule);
+    struct Vehicule* generateVehicule();
+    void moveVehicule(Vehicule* vehicule);
 #endif
