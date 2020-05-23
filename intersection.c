@@ -26,14 +26,14 @@ void fillTerrain(Intersection* intersection){
 }
 
 void generateHorizontalRoad(Intersection* intersection){
-    for (int i = 0; i <= 4; i+=2) {
+    for (int i = 2; i <= 4; i+=2) {
         for (int j = 0; j < MATRICE_SIZE; j++) {
             intersection->terrain[i][j] = "-";   
         }
     }    
 }
 
-void generateVerticalRoad(){
+void generateVerticalRoad(Intersection* intersection){
     for (int i = 0; i <= MATRICE_SIZE; i++) {
         for (int j = 2; j <= 4; j+=2) {
             intersection->terrain[i][j] = "|";   
@@ -44,7 +44,7 @@ void generateVerticalRoad(){
 void showTerrain(Intersection* intersection){
     for (int i = 0; i < MATRICE_SIZE; i++) {
         for (int j = 0; j < MATRICE_SIZE; j++) {
-            printf("%s", &intersection->terrain[i][j]);   
+            printf("%s", intersection->terrain[i][j]);   
         }
         printf("\n");       
     }   

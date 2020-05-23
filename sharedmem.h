@@ -8,6 +8,6 @@
 #include "intersection.h"
 #include "defs.h"
 
-    Intersection* createSharedMemory();
+    struct intersection * createSharedMemory();
 
 #endif

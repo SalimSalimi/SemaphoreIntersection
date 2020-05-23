@@ -2,12 +2,13 @@
 
 Vehicule genererVehicule() {
     Vehicule vehicule;    
+    int n;
     switch (fork()) {
     case -1:
         printf("Couldn't create a new car");
         break;
     case 0:
-        int n = rand() % 2;
+        n = rand() % 2;
         vehicule.pid = getpid();
         if (n == 0) {
             vehicule.positionX = 0;

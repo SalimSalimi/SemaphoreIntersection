@@ -7,13 +7,12 @@
 #include "vehicule.h"
 #include "sharedmem.h"
 
-    typedef struct {
+    typedef struct intersection {
         Vehicule* vehicules[VEHICULE_NUMBER_SIZE];
-        char terrain[MATRICE_SIZE][MATRICE_SIZE];
+        char* terrain[MATRICE_SIZE][MATRICE_SIZE];
         Vehicule* vehiculeSection[VEHICULE_INTERSECTION_SIZE];
         bool isIntersectionFree;
     } Intersection;
-    extern Intersection* intersection;  
     
     Intersection* init();
     void addVehiculesToTerrain(Intersection*);
