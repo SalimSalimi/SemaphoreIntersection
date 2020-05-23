@@ -21,7 +21,6 @@ void fillTerrain(Intersection* intersection){
         for (int j = 0; j < MATRICE_SIZE; j++) {
             intersection->terrain[i][j] = " ";       
         }
-        
     }
 }
 
