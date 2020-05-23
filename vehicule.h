@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "defs.h"
+#include "sharedmem.h"
 
    typedef struct {
     int pid;

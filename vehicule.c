@@ -1,6 +1,6 @@
 #include "vehicule.h"
 
-Vehicule genererVehicule() {
+Vehicule generateVehicule() {
     Vehicule vehicule;    
     int n;
     switch (fork()) {
@@ -25,13 +25,24 @@ Vehicule genererVehicule() {
     return vehicule;
 }
 
-void deplacerVehicule(Vehicule vehicule) {
-    if (vehicule.positionX < MATRICE_SIZE || vehicule.positionY < MATRICE_SIZE) {
-        if (vehicule.positionY == 3) {
-            vehicule.positionX++;
+void moveVehicule(Vehicule* vehicule) {
+    if (vehicule->positionX < MATRICE_SIZE || vehicule->positionY < MATRICE_SIZE) {
+        if (vehicule->positionY == 3) {
+            vehicule->positionX++;
         }
-        if (vehicule.positionX == 3) {
-            vehicule.positionY++;
+        if (vehicule->positionX == 3) {
+            vehicule->positionY++;
         }
+    }
+}
+
+void manageCriticalArea(Vehicule* vehicule, Intersection* intersection) {
+    if ((vehicule->positionX == 3 && vehicule->positionY == 2) || (vehicule->positionX == 2 && vehicule->positionY == 3)) {
+        while (intersection->isIntersectionFree == false) {
+            sleep(1);   
+        }
+        S(intersection->sharedSemaphoreId);
+        moveVehicule(vehicule);
+        V(intersection->sharedSemaphoreId);
     }
 }

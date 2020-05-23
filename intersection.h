@@ -12,6 +12,7 @@
         char* terrain[MATRICE_SIZE][MATRICE_SIZE];
         Vehicule* vehiculeSection[VEHICULE_INTERSECTION_SIZE];
         bool isIntersectionFree;
+        int sharedSemaphoreId; 
     } Intersection;
     
     Intersection* init();
