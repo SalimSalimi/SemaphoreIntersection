@@ -4,5 +4,9 @@
 int main() {
     Intersection* intersection = init();
     showTerrain(intersection);
+    while (true) {
+        
+    }
+    
     return 0;
 }

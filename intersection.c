@@ -5,6 +5,8 @@ Intersection* init() {
     fillTerrain(intersection);
     generateHorizontalRoad(intersection);
     generateVerticalRoad(intersection);
+    int semid = semget((key_t) SEMAPHORE_KEY, 2, IPC_CREAT | S_IRUSR | S_IWUSR);
+    intersection->sharedSemaphoreId = semid;
     return intersection;
 }
 

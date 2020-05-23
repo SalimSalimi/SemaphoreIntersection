@@ -14,6 +14,6 @@
     int positionY;
     } Vehicule;
 
-    Vehicule genererVehicule();
-    void deplacerVehicule(Vehicule vehicule);
+    Vehicule generateVehicule();
+    void moveVehicule(Vehicule vehicule);
 #endif
