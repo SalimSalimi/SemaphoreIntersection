@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include "defs.h"
+
    typedef struct {
     int pid;
     int positionX;

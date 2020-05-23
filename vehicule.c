@@ -25,7 +25,7 @@ Vehicule genererVehicule() {
 }
 
 void deplacerVehicule(Vehicule vehicule) {
-    if (vehicule.positionX <= 6 && vehicule.positionY <= 6) {
+    if (vehicule.positionX < MATRICE_SIZE && vehicule.positionY <= MATRICE_SIZE) {
         if (vehicule.positionY == 3) {
             vehicule.positionX = vehicule.positionX + 1;
         }
